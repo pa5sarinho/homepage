@@ -1,0 +1,144 @@
+<head>
+    <title>Home</title>
+    <style>
+		.search-form {
+			display: flex;
+			align-items: center;
+			border:1px solid #93a1a1;
+			border-radius: 2px;
+			overflow: hidden;
+			max-width: 700px;
+			margin: 0 auto;
+			margin-bottom: 30px;
+		}
+
+		.search-form input[type="text"] {
+			flex: 1;
+			padding: 10px;
+			border: none;
+			background-color: #eee8d5;
+			color: gray;
+			font: 16px "courier";
+			cursor: pointer;
+		}
+
+		.search-form input[type="submit"] {
+			padding: 10px 20px;
+			border: none;
+			font: 16px "courier";
+			cursor: pointer;
+			color: #073642;
+			background-color: #eee8d5;
+		}
+
+		input[type="text"]:focus{
+			outline: none;
+		}
+    
+    	.favorites {
+    		display: grid;
+    		grid-template-columns: 1fr 1fr 1fr;
+    		grid-gap: 10px;
+    		text-align: left;
+    		margin: 0 auto;
+			max-width: 700px;
+    	}
+    	
+    	.list {
+    		background-color: #eee8d5;
+    		padding: 10px;
+    		color: #657b83;
+    		font-weight: bold;
+    		font-family: courier;
+    		border: 1px solid #93a1a1;
+    		border-radius: 2px;
+    	}
+
+    	body {
+			text-align: center;
+			background-color: #fdf6e3;
+    	}
+
+    	a {
+    		color: #073642;
+    		font-weight: bold;
+    		text-decoration: none;
+    	}
+
+    	a:hover {
+			color: #657b83;
+    	}
+
+    	#time {
+			margin-top: 200px;
+			margin-bottom: 100px;
+			display: inline-block;
+			vertical-align: middle;
+			text-align: left;
+			font: bold 60px "courier";
+			color: #073642;
+    	}
+    	
+    </style>
+</head>
+
+<body>
+    <div id="time"></div>
+
+	<script src="https://duckduckgo.com/search_box.js"></script>
+
+	<div>
+		<form action="https://duckduckgo.com/" method="get" class="search-form">
+			<input type="text" name="q" autocomplete="off" placeholder="Search DuckDuckGo">
+			<input type="submit" value="Search">
+		</form>
+	</div>
+
+	<div class="favorites">
+		<div class="list">
+			$ docs
+			<ul>
+				<li><a href="https://docs.python.org/3/library/index.html">Python</a></li>
+				<li><a href="https://numpy.org/doc/stable/user/absolute_beginners.html">Numpy</a></li>
+				<li><a href="https://learn.microsoft.com/pt-br/cpp/cpp/?view=msvc-170">C++</a></li>
+				<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS#reference">CSS</a></li>
+				<li><a href="https://develop.kde.org/docs/">KDE</a></li>
+			</ul>
+		</div>
+		<div class="list">
+			$ study
+			<ul>
+				<li><a href="https://en.wikipedia.org/wiki/Template:Design_patterns">Design Patterns</a></li>
+				<li><a href="https://en.wikiversity.org/wiki/IT_Security">IT Security</a></li>
+				<li><a href="https://en.wikiversity.org/wiki/Linux_Administration">Linux Admin</a></li>
+				<li><a href="https://en.wikiversity.org/wiki/Computer_Networks">Networks</a></li>
+				<li><a href="https://libgen.fun/">LibGen</a></li>
+			</ul>
+		</div>
+		<div class="list">
+			$ misc
+			<ul>
+				<li><a href="https://www.ultimate-guitar.com/artist/gregory_alan_isakov_31006">Ultimate Guitar</a></li>
+				<li><a href="https://retroachievements.org/user/passarinho">RAchievements</a></li>
+				<li><a href="https://kittensgame.com/web/#">Kittens Game</a></li>
+				<li><a href="https://www.youtube.com/playlist?list=PLYJBniXbg4HL2RQJyzGBosvgYGwoH3x0g">YT Playlist</a></li>
+				<li><a href="https://github.com/pa5sarinho">GitHub</a></li>
+			</ul>
+		</div>
+	</div>
+
+    <script>
+    // clock
+    const div = document.getElementById("time");
+
+    function updateDiv() {
+
+        const currentTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+
+        div.innerText = currentTime;
+    }
+
+    setInterval(updateDiv, 1000);
+    </script>
+
+</body>

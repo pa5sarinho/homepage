@@ -1,0 +1,134 @@
+<head>
+    <title>Home</title>
+    <style>
+		.search-form {
+			display: flex;
+			align-items: center;
+			border: 1px solid rgb(231,191,126);
+			border-radius: 4px;
+			overflow: hidden;
+			max-width: 700px;
+			margin: 0 auto;
+			margin-bottom: 30px;
+		}
+
+		.search-form input[type="text"] {
+			flex: 1;
+			padding: 10px;
+			border: none;
+			background-color: rgb(38,44,58);
+			color: rgb(231,191,126);
+			font-size: 16px;
+			cursor: pointer;
+		}
+
+		.search-form input[type="submit"] {
+			padding: 10px 20px;
+			border: none;
+			font-size: 16px;
+			cursor: pointer;
+			color: rgb(231,191,126);
+			background-color: rgb(38,44,58);
+		}
+
+		input[type="text"]:focus{
+			outline: none;
+		}
+    
+    	.favorites {
+    		display: grid;
+    		grid-template-columns: 1fr 1fr 1fr;
+    		grid-gap: 10px;
+    		text-align: left;
+    		margin: 0 auto;
+			max-width: 700px;
+    	}
+    	
+    	.list {
+    		background-color: rgb(38,44,58);
+    		padding: 10px;
+    		color: rgb(231,191,126);
+    		font-weight: bold;
+    		font-family: courier;
+    		border: 1px solid rgb(231,191,126);
+    		border-radius: 4px;
+    	}
+
+    	a {
+    		color: #fff;
+    		font-weight: bold;
+    		text-decoration: none;
+    	}
+
+    	a:hover {
+			background-color: rgb(29,29,39);
+    	}
+    	
+    </style>
+</head>
+
+<body style="text-align: center; background-color: rgb(29,29,39); color: #d4be98;">
+    <canvas id="time" width="400" height="200" style="margin-top: 200px;"></canvas>
+
+	<script src="https://duckduckgo.com/search_box.js"></script>
+
+	<div>
+		<form action="https://duckduckgo.com/" method="get" class="search-form">
+			<input type="text" name="q" autocomplete="off" placeholder="Search DuckDuckGo">
+			<input type="submit" value="Search">
+		</form>
+	</div>
+
+	<div class="favorites">
+		<div class="list">
+			$ docs
+			<ul>
+				<li><a href="https://docs.python.org/3/library/index.html">Python</a></li>
+				<li><a href="https://numpy.org/doc/stable/user/absolute_beginners.html">Numpy</a></li>
+				<li><a href="https://learn.microsoft.com/pt-br/cpp/cpp/?view=msvc-170">C++</a></li>
+				<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS#reference">CSS</a></li>
+				<li><a href="https://develop.kde.org/docs/">KDE</a></li>
+			</ul>
+		</div>
+		<div class="list">
+			$ study
+			<ul>
+				<li><a href="https://en.wikipedia.org/wiki/Template:Design_patterns">Design Patterns</a></li>
+				<li><a href="https://en.wikiversity.org/wiki/IT_Security">IT Security</a></li>
+				<li><a href="https://en.wikiversity.org/wiki/Linux_Administration">Linux Admin</a></li>
+				<li><a href="https://en.wikiversity.org/wiki/Computer_Networks">Networks</a></li>
+				<li><a href="https://libgen.fun/">LibGen</a></li>
+			</ul>
+		</div>
+		<div class="list">
+			$ misc
+			<ul>
+				<li><a href="https://www.ultimate-guitar.com/artist/gregory_alan_isakov_31006">Ultimate Guitar</a></li>
+				<li><a href="https://retroachievements.org/user/passarinho">RAchievements</a></li>
+				<li><a href="https://kittensgame.com/web/#">Kittens Game</a></li>
+				<li><a href="https://www.youtube.com/playlist?list=PLYJBniXbg4HL2RQJyzGBosvgYGwoH3x0g">YT Playlist</a></li>
+				<li><a href="https://github.com/pa5sarinho">GitHub</a></li>
+			</ul>
+		</div>
+	</div>
+
+    <script>
+    // clock
+    const canvas = document.getElementById("time");
+    const context = canvas.getContext("2d");
+
+    function updateCanvas() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        const currentTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+
+        context.font = "bold 60px courier";
+        context.fillStyle = "rgb(231,191,126)";
+
+        context.fillText(currentTime, 60, 80);
+    }
+
+    setInterval(updateCanvas, 1000);
+    </script>
+
+</body>
